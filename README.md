@@ -48,3 +48,5 @@
  
      6.3 Coefficient of determination (R-Squared)
 
+![MIS2023PIC01.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC01.png)
+
