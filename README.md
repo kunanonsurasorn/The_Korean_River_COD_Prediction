@@ -122,7 +122,7 @@
      13.5 KNeighborsRegressor(algorithm = 'auto', n_neighbors = 7, p= 1, weights= 'distance')                                                             1.8474         7.1883         0.3535
      13.6 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4, min_samples_split = 4, random_state = None, splitter = 'random')                  1.0753         2.4318         0.7812
 
-## 14. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดง แม่น้ำยองซัม แม่น้ำฮัน และแม่น้ำกึมในเดือนมิถุนายนถึงสิงหาคมระหว่างปี 2017 - 2020 โดยพิจารณาจากพารามิเตอร์ที่เหมาะสมจากชุดคำสั่ง Script ค้นหาโมเดลที่เหมาะสมจากการประเมินด้วย Mean Absolute Error ของ Linear Regression, Ridge Linear Regression, Lasso Linear Regression และ Decision Tree Regressor ซึ่งในกรณีนี้จะไม่พิจารณา SVR และ KNeighborsRegressor
+## 14. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดง แม่น้ำยองซัม แม่น้ำฮัน และแม่น้ำกึมในเดือนมิถุนายนถึงสิงหาคมระหว่างปี 2017 - 2020 โดยใช้ชุดคำสั่ง Script 
 
 ![MIS2023PIC04.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC04.png)
 ![MIS2023PIC05.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC05.png)
@@ -132,4 +132,13 @@
      14.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = True)                                                                         0.9392         1.9433         
      14.2 Ridge(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                 0.9307         1.9187         
      14.3 Lasso(alpha = 0.1, fit_intercept = False, random_state = None)                                                                                  0.9393         1.9001        
-     14.4 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4,min_samples_split = 2, random_state = None, splitter = 'random')                   1.1021         2.6579                                                                     
+     14.4 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4,min_samples_split = 2, random_state = None, splitter = 'random')                   1.1021         2.6579       
+
+
+## 15. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดง แม่น้ำยองซัม แม่น้ำฮัน และแม่น้ำกึมในเดือนมิถุนายนถึงสิงหาคมระหว่างปี 2017 - 2020 โดยใช้ GridSearchCV
+
+     |                             MODEL                                                                                                             |     MAE      |     MSE     |
+     15.1 LinearRegression(fit_intercept = False,positive = True)                                                                                         0.9392         1.9433         
+     15.2 Ridge(alpha=0.01, fit_intercept=False)                                                                                                          0.9307         1.9187         
+     15.3 Lasso(alpha=0.1, fit_intercept=False)                                                                                                           0.9393         1.9001        
+     15.4 DecisionTreeRegressor(min_samples_leaf=4, splitter='random')                                                                                    1.0922         2.6041       
