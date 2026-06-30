@@ -46,5 +46,5 @@
  
      6.2 Mean Squared Error (MSE)
  
-     6.3 Coefficient of determination
+     6.3 Coefficient of determination (R-Squared)
 
