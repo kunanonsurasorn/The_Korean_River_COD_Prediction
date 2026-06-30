@@ -124,54 +124,6 @@
 
 ## 14. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดง แม่น้ำยองซัม แม่น้ำฮัน และแม่น้ำกึมในเดือนมิถุนายนถึงสิงหาคมระหว่างปี 2017 - 2020 โดยพิจารณาจากพารามิเตอร์ที่เหมาะสมจากชุดคำสั่ง Script ค้นหาโมเดลที่เหมาะสมจากการประเมินด้วย Mean Absolute Error ของ Linear Regression, Ridge Linear Regression, Lasso Linear Regression และ Decision Tree Regressor ซึ่งในกรณีนี้จะไม่พิจารณา SVR และ KNeighborsRegressor
 
-models3 = [
-    {'name': 'Linear Regression',
-      'model': LinearRegression(),
-      'param_grid': {'fit_intercept': [True,False],
-                            'n_jobs': [None,1,5,10],
-                            'positive': [True,False]}},
-    {'name': 'Ridge Linear Regression',
-      'model': Ridge(),
-      'param_grid': {'alpha': [0.01, 0.1, 1.0, 10.0],
-                           'fit_intercept': [True,False],
-                           'random_state': [None,1,42]}},
-    {'name': 'Lasso Linear Regression',
-      'model': Lasso(),
-      'param_grid': {'alpha': [0.01, 0.1, 1.0, 10.0],
-                           'fit_intercept': [True,False],
-                           'random_state': [None,1,42]}},
-    {'name': 'Decision Tree Regressor',
-      'model': DecisionTreeRegressor(),
-      'param_grid': {'max_depth': [None, 4],
-                           'splitter': ['best','random'],
-                           'min_samples_split': [2,3,4],
-                           'min_samples_leaf': [2,3,4],
-                           'random_state': [None,1,42]
-                          }}
-    ]
-
-results3 = []
-
-for model_info3 in models3:
-    model3 = model_info3['model']
-    param_grid3 = model_info3['param_grid']
-    grid_search3 = GridSearchCV(model3, param_grid3,cv= 5,scoring='neg_mean_absolute_error')
-    grid_search3.fit(ifdx_train,ifdy_train)
-
-    best_model3 = grid_search3.best_estimator_
-    ifdy_pred = best_model3.predict(ifdx_test)
-    score_model3 = mean_absolute_error(ifdy_test, ifdy_pred)
-
-    results3.append({
-        'Model': model_info3['name'],
-        'Best Parameters': grid_search3.best_params_,
-        'Mean Absolute Error': score_model3
-    })
-
-# Display the results
-results3_df = pd.DataFrame(results3)
-results3_df
-
      |                             MODEL                                                                                                             |     MAE      |     MSE     |
      14.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = True)                                                                         0.9392         1.9433         
      14.2 Ridge(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                 0.9307         1.9187         
