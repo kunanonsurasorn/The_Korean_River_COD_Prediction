@@ -61,3 +61,15 @@
      7.2 Correlation Heatmap
 
 ![MIS2023PIC01.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC01.png)
+
+## 8. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดง
+
+     |           MODEL            |     MAE      |     MSE     |     
+     8.1 โมเดล LinearRegression() | MAE = 0.7981 | MSE = 1.2196
+     8.2 Ridge(alpha = 1) | MAE = 0.7904 | MSE = 1.1850
+     8.3 Lasso(alpha = 1) | MAE = 1.0001 | MSE = 1.9251
+     8.4 SVR(kernel = 'rbf', gamma='scale', C=1.0, epsilon=0.1) | MAE = 1.0001 | MSE = 1.9251
+     8.5 KNeighborsRegressor(n_neighbors= 2 )
+     8.6 DecisionTreeRegressor(random_state = 0)
+
+     
