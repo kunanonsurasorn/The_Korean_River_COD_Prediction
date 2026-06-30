@@ -1,5 +1,3 @@
-# **The_Korean_River_COD_Prediction**
-
 # **โปรเจกต์การคาดการณ์ Chemical Oxygen Demand (COD) โดยใช้ชุดข้อมูลคุณภาพแม่น้ำนักดงในประเทศเกาหลีใต้**
 
 ## 1. วัตถุประสงค์ 
