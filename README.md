@@ -26,3 +26,25 @@
  
      4.4 Sklearn
 
+## 5. โมเดลที่ใช้สำหรับค้นหาโมเดลที่เหมาะสม
+
+     5.1 Linear Regression
+ 
+     5.2 Ridge Regression
+ 
+     5.3 Lasso Regression
+ 
+     5.4 Support Vector Machine
+
+     5.5 K-Nearest Neighbors
+
+     5.6 Decision Tree
+
+## 6. วิธีการประเมินโมเดลสำหรับการคาดการณ์
+
+     6.1 Mean Absolute Error (MAE)
+ 
+     6.2 Mean Squared Error (MSE)
+ 
+     6.3 Coefficient of determination
+
