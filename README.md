@@ -82,4 +82,32 @@
      9.5 KNeighborsRegressor(algorithm = 'auto', n_neighbors = 7, p= 1, weights= 'distance')                                                              1.5473         4.7114        0.2566
      9.6 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4,min_samples_split = 4, random_state = None, splitter = 'random')                    0.8598         1.4201        0.7759
 
-     
+## 10. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำยองซันในเดือนมิถุนายนถึงสิงหาคมของปี 2020
+
+     |                             MODEL                                                                                                             |     MAE      |     MSE     |     
+     10.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = False)                                                                        1.1237         6.6095    
+     10.2 Ridge(alpha = 10.0, fit_intercept = False, random_state = None)                                                                                 1.0395         4.5149
+     10.3 Lasso(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                 1.0515         4.8160
+     10.4 SVR(C = 10, degree = 3, epsilon = 0.01, gamma = 'auto')                                                                                         2.5100        11.4438
+     10.5 KNeighborsRegressor(algorithm = 'auto', n_neighbors = 7, p= 1, weights= 'distance')                                                             2.5191        13.0675
+     10.6 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4, min_samples_split = 4, random_state = None, splitter = 'random')                  1.2556         4.0798
+
+## 11. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำยองซันในเดือนมิถุนายนถึงสิงหาคมของปี 2020
+
+     |                             MODEL                                                                                                             |     MAE      |     MSE     |     
+     11.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = False)                                                                        0.9347         1.8513    
+     11.2 Ridge(alpha = 10.0, fit_intercept = False, random_state = None)                                                                                 0.9398         1.7709
+     11.3 Lasso(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                 0.9388         1.7764
+     11.4 SVR(C = 10, degree = 3, epsilon = 0.01, gamma = 'auto')                                                                                         2.5352         8.6404
+     11.5 KNeighborsRegressor(algorithm = 'auto', n_neighbors = 7, p= 1, weights= 'distance')                                                             2.0270         6.4447
+     11.6 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4, min_samples_split = 4, random_state = None, splitter = 'random')                  1.1730         2.9024
+
+## 12. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำกึมในเดือนมิถุนายนถึงสิงหาคมของปี 2020
+
+     |                             MODEL                                                                                                             |     MAE      |     MSE     |     
+     12.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = False)                                                                        2.0113         9.9762    
+     12.2 Ridge(alpha = 10.0, fit_intercept = False, random_state = None)                                                                                 1.9444         9.8418
+     12.3 Lasso(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                 1.9692         10.1276
+     12.4 SVR(C = 10, degree = 3, epsilon = 0.01, gamma = 'auto')                                                                                         2.4173         11.1578
+     12.5 KNeighborsRegressor(algorithm = 'auto', n_neighbors = 7, p= 1, weights= 'distance')                                                             2.6398         13.3086
+     12.6 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4, min_samples_split = 4, random_state = None, splitter = 'random')                  1.8585         6.9622
