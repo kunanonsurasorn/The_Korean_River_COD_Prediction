@@ -74,7 +74,7 @@
 
 ## 9. ผลลัพธ์ของโมเดลการคาดการณ์ COD ใหม่จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดงในเดือนมิถุนายนถึงสิงหาคมระหว่างปี 2017 - 2020
 
-     |                             MODEL                                                                                                             |     MAE      |     MSE     |   R-Squared     
+     |                             MODEL                                                                                                             |     MAE      |     MSE     |   R-Squared   |   
      9.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = False)                                                                         0.7987         1.2175        0.8079
      9.2 Ridge(alpha = 10.0, fit_intercept = False, random_state = None)                                                                                  0.7788         1.1566        0.8175
      9.3 Lasso(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                  0.7812         1.1606        0.8168
@@ -111,3 +111,69 @@
      12.4 SVR(C = 10, degree = 3, epsilon = 0.01, gamma = 'auto')                                                                                         2.4173         11.1578
      12.5 KNeighborsRegressor(algorithm = 'auto', n_neighbors = 7, p= 1, weights= 'distance')                                                             2.6398         13.3086
      12.6 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4, min_samples_split = 4, random_state = None, splitter = 'random')                  1.8585         6.9622
+
+## 13. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดง แม่น้ำยองซัม แม่น้ำฮัน และแม่น้ำกึมในเดือนมิถุนายนถึงสิงหาคมระหว่างปี 2017 - 2020
+
+     |                             MODEL                                                                                                             |     MAE      |     MSE     |   R-Squared   |     
+     13.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = False)                                                                        0.9307         1.9189         0.8274    
+     13.2 Ridge(alpha = 10.0, fit_intercept = False, random_state = None)                                                                                 0.9290         1.8957         0.8295
+     13.3 Lasso(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                 0.9323         1.8846         0.8305
+     13.4 SVR(C = 10, degree = 3, epsilon = 0.01, gamma = 'auto')                                                                                         2.3902        10.5852         0.0480
+     13.5 KNeighborsRegressor(algorithm = 'auto', n_neighbors = 7, p= 1, weights= 'distance')                                                             1.8474         7.1883         0.3535
+     13.6 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4, min_samples_split = 4, random_state = None, splitter = 'random')                  1.0753         2.4318         0.7812
+
+## 14. ผลลัพธ์ของโมเดลการคาดการณ์ COD จากชุดข้อมูลคุณภาพน้ำของแม่น้ำนักดง แม่น้ำยองซัม แม่น้ำฮัน และแม่น้ำกึมในเดือนมิถุนายนถึงสิงหาคมระหว่างปี 2017 - 2020 โดยพิจารณาจากพารามิเตอร์ที่เหมาะสมจากชุดคำสั่ง Script ค้นหาโมเดลที่เหมาะสมจากการประเมินด้วย Mean Absolute Error ของ Linear Regression, Ridge Linear Regression, Lasso Linear Regression และ Decision Tree Regressor ซึ่งในกรณีนี้จะไม่พิจารณา SVR และ KNeighborsRegressor
+
+models3 = [
+    {'name': 'Linear Regression',
+      'model': LinearRegression(),
+      'param_grid': {'fit_intercept': [True,False],
+                            'n_jobs': [None,1,5,10],
+                            'positive': [True,False]}},
+    {'name': 'Ridge Linear Regression',
+      'model': Ridge(),
+      'param_grid': {'alpha': [0.01, 0.1, 1.0, 10.0],
+                           'fit_intercept': [True,False],
+                           'random_state': [None,1,42]}},
+    {'name': 'Lasso Linear Regression',
+      'model': Lasso(),
+      'param_grid': {'alpha': [0.01, 0.1, 1.0, 10.0],
+                           'fit_intercept': [True,False],
+                           'random_state': [None,1,42]}},
+    {'name': 'Decision Tree Regressor',
+      'model': DecisionTreeRegressor(),
+      'param_grid': {'max_depth': [None, 4],
+                           'splitter': ['best','random'],
+                           'min_samples_split': [2,3,4],
+                           'min_samples_leaf': [2,3,4],
+                           'random_state': [None,1,42]
+                          }}
+    ]
+
+results3 = []
+
+for model_info3 in models3:
+    model3 = model_info3['model']
+    param_grid3 = model_info3['param_grid']
+    grid_search3 = GridSearchCV(model3, param_grid3,cv= 5,scoring='neg_mean_absolute_error')
+    grid_search3.fit(ifdx_train,ifdy_train)
+
+    best_model3 = grid_search3.best_estimator_
+    ifdy_pred = best_model3.predict(ifdx_test)
+    score_model3 = mean_absolute_error(ifdy_test, ifdy_pred)
+
+    results3.append({
+        'Model': model_info3['name'],
+        'Best Parameters': grid_search3.best_params_,
+        'Mean Absolute Error': score_model3
+    })
+
+# Display the results
+results3_df = pd.DataFrame(results3)
+results3_df
+
+     |                             MODEL                                                                                                             |     MAE      |     MSE     |
+     14.1 LinearRegression(fit_intercept = False, n_jobs = None, positive = True)                                                                         0.9392         1.9433         
+     14.2 Ridge(alpha = 0.01, fit_intercept = False, random_state = None)                                                                                 0.9307         1.9187         
+     14.3 Lasso(alpha = 0.1, fit_intercept = False, random_state = None)                                                                                  0.9393         1.9001        
+     14.4 DecisionTreeRegressor(max_depth = None, min_samples_leaf = 4,min_samples_split = 2, random_state = None, splitter = 'random')                   1.1021         2.6579                                                                     
