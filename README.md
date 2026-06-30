@@ -48,5 +48,14 @@
  
      6.3 Coefficient of determination (R-Squared)
 
-![MIS2023PIC01.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC01.png)
+## 7. Data Visualization ที่ใช้ในการดูข้อมูล
 
+     7.1 Box Plot
+
+![MIS2023PIC02.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC02.png)
+
+![MIS2023PIC03.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC03.png)
+     
+     7.2 Correlation Heatmap
+
+![MIS2023PIC01.png](https://github.com/kunanonsurasorn/The_Korean_River_COD_Prediction/blob/main/MIS2023PIC01.png)
